@@ -1,0 +1,92 @@
+<%- include ('partials/head')%>
+
+<body id="body">
+  <!--main-->
+  <!-- header -->
+  <header id="header">
+    <%- include ('partials/nav',{page: 'contact'})%>
+  </header>
+  <!--main-->
+  <main id="main">
+    <!-- content -->
+    <div class="contact-content">
+
+      <!-- <div id="contact-img" class="contact-cel-2"></div> -->
+      <div class="contact-cel-1">
+        <h2>Contact Us</h2>
+        <p>
+          If you have any questions or comments, please feel free to contact us
+          using the form below.
+        </p>
+      </div>
+      <div class="contact-cel-2">
+        <table style="width: 100%; text-align: left;">
+          <tr>
+            <th valign=left style="width:30%">
+              <h2>Address</h2>
+            </th>
+            <th style="width:30%">
+              <h2>Email</h2>
+            </th>
+            <th style="width:30%">
+              <h2>Phone</h2>
+            </th>
+          </tr>
+          <tr>
+            <td>MühlenStraße 29 <br> 35947 Nettersheim <br> Germany</td>
+            <td valign=top>mbrsyr@yahoo.com</td>
+            <td valign=top>+49 1578 4446611</td>
+          </tr>
+        </table>
+      </div>
+      <div class="contact-cel-3">
+        <form id="contacts_form">
+          <input type="text" name="name" placeholder="Name" required>
+          <input type="email" name="email" placeholder="Email" required>
+          <input type="text" name="subject" placeholder="Subject" required>
+          <textarea name="message" placeholder="Wite a message here" required></textarea>
+          <div id="contact-form-btn_div"><button id="contact-btn">Send Message</button></div>
+        </form>
+      </div>
+      <div class="contact-cel-4">
+        <h2>Follow us here</h2>
+        <p>
+          <a href="#">Facebook</a>
+          <a href="#">Twitter</a>
+          <a href="#">Instagram</a>
+        </p>
+      </div>
+    </div>
+  </main>
+  <!-- footer -->
+  <%- include ('partials/footer')%>
+  <script>
+    contacts_form.onsubmit = async (e) => {
+  e.preventDefault();
+  //const formData = new FormData(loginForm);
+  //const email = formData.get('email');
+  //const password = formData.get('password');
+  console.log(new FormData(contacts_form));
+
+  try {
+    const response = await fetch('/contact-us', {
+      method: 'POST',
+      
+      body: new FormData(contacts_form),
+    });
+    const result = await response.json();
+    console.log(result);
+    if (result === 'done') {
+      //window.location = '/admin';
+    } else {
+      //alert('wrong username or password , try again');
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+  </script>
+  <script src="/js/script.js"></script>
+</body>
+
+</html>

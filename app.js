@@ -14,6 +14,9 @@ const DataRouter = require('./routers/dataRouter');
 
 ghDbConnect();
 
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+
 app.set('port', process.env.PORT || 4500);
 
 const server = app.listen(app.get('port'), () => {

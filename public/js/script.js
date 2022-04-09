@@ -1,4 +1,4 @@
-loginForm.onsubmit = async (e) => {
+/* loginForm.onsubmit = async (e) => {
   e.preventDefault();
   //const formData = new FormData(loginForm);
   //const email = formData.get('email');
@@ -20,7 +20,30 @@ loginForm.onsubmit = async (e) => {
   } catch (error) {
     console.log(error);
   }
-};
+}; */
+/* contactUs.onsubmit = async (e) => {
+  e.preventDefault();
+  //const formData = new FormData(loginForm);
+  //const email = formData.get('email');
+  //const password = formData.get('password');
+
+  try {
+    const response = await fetch('/contact-us', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: new FormData(contactUs),
+    });
+    const result = await response.json();
+    console.log(result);
+    if (result === 'done') {
+      //window.location = '/admin';
+    } else {
+      //alert('wrong username or password , try again');
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}; */
 
       /* const coco = {light: {
         minValue: { type: Number, default: 0 },

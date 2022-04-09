@@ -100,7 +100,7 @@ const postDashboard = async (req, res) => {
 const logout = (req, res) => {
   req.session.destroy();
   //req.session = null;
-  res.redirect('/login');
+  res.redirect('/auth');
 };
 
 const logOutPost = (req, res) => {
