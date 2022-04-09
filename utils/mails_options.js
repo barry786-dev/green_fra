@@ -20,17 +20,17 @@ const regEmailSentForm = (emailReceiverInfo) => {
 };
 
 const contactEmailSentForm = (emailReceiverInfo) => {
-  const { firstName, lastName, email, subject } = emailReceiverInfo;
+  const { name, email, subject, message } = emailReceiverInfo;
   const contact_mailOption = {
     from: process.env.APP_EMAIL,
     to: process.env.CONTACT_EMAIL,
-    subject: `${firstName} ${lastName} has sent you a message from contact page in www.green-house.com`,
+    subject: `${name} has sent you a message from contact page in www.green-house.com`,
     html: `
       <h1>contact email from contact page in www.green-house.com</h1>
-      <p><strong> customer first name:</strong> ${firstName}</p>
-      <p><strong> customer last name:</strong> ${lastName}</p>
+      <p><strong> customer first name:</strong> ${name}</p>
       <p><strong> customer email:</strong> ${email}</p>
-      <p><strong> customer subject:</strong> ${subject}</p>`,
+      <p><strong> customer subject:</strong> ${subject}</p>
+      <p><strong> customer subject:</strong> ${message}</p>`,
   };
   return contact_mailOption;
 };

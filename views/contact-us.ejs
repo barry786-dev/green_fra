@@ -40,12 +40,20 @@
         </table>
       </div>
       <div class="contact-cel-3">
+        <div id="received" style="display: none;">
+          <p id="received-msg">Thanks you we have received your email, we will contact you soon!</p>
+          <div id="received-form-btn_div"><button type="submit" onclick="backToContactUsForm()">go back</button></div>
+        </div>
+        <div id="failed" style="display: none;">
+          <p id="failed-msg">Problem in Email sending from the company side, may you try again OR please contact us at this email <bold>mbrsyr@yahoo.com,</bold> or call our customer support at : +49 157-8444-6611</p>
+          <div id="failed-form-btn_div"><button type="submit" onclick="backToContactUsForm()">go back</button></div>
+        </div>
         <form id="contacts_form">
           <input type="text" name="name" placeholder="Name" required>
           <input type="email" name="email" placeholder="Email" required>
           <input type="text" name="subject" placeholder="Subject" required>
-          <textarea name="message" placeholder="Wite a message here" required></textarea>
-          <div id="contact-form-btn_div"><button id="contact-btn">Send Message</button></div>
+          <textarea id="aaa" name="message" placeholder="Wite a message here" required></textarea>
+          <div id="contact-form-btn_div"><button id="contact-btn" type="submit" onclick="backToContactUsForm()">Send Message</button></div>
         </form>
       </div>
       <div class="contact-cel-4">
@@ -60,32 +68,6 @@
   </main>
   <!-- footer -->
   <%- include ('partials/footer')%>
-  <script>
-    contacts_form.onsubmit = async (e) => {
-  e.preventDefault();
-  //const formData = new FormData(loginForm);
-  //const email = formData.get('email');
-  //const password = formData.get('password');
-  console.log(new FormData(contacts_form));
-
-  try {
-    const response = await fetch('/contact-us', {
-      method: 'POST',
-      
-      body: new FormData(contacts_form),
-    });
-    const result = await response.json();
-    console.log(result);
-    if (result === 'done') {
-      //window.location = '/admin';
-    } else {
-      //alert('wrong username or password , try again');
-    }
-  } catch (error) {
-    console.log(error);
-  }
-};
-  </script>
   <script src="/js/script.js"></script>
 </body>
 

@@ -34,11 +34,12 @@ const getContact = (req, res) => {
 const postContact = (req, res) => {
   log(req.body);
   // sending email after contact us form submit
- /*  sendEmail(contactEmailSentForm(req.body)) // contactEmailSentForm() inside /utils/mails_options'
+  sendEmail(contactEmailSentForm(req.body)) // contactEmailSentForm() inside /utils/mails_options'
     .then((info) => {
       log(info);
       res.json({
-        myMsg: `contact-us success , we will contact you soon, thank you`,
+        success: true,
+        /* myMsg: `contact-us success , we will contact you soon, thank you`, */
       });
     })
     .catch((error) => {
@@ -47,10 +48,10 @@ const postContact = (req, res) => {
       log(error);
       res.json({
         errorNu: 6,
-        myMsg:
-          'Problem in Email sending from the company side please send email to mbrsyr@yahoo.com, or call our customer support at : +49 157-8444-6611',
+        /* myMsg:
+          'Problem in Email sending from the company side please send email to mbrsyr@yahoo.com, or call our customer support at : +49 157-8444-6611', */
       });
-    }); */
+    });
 };
 ////////////////////////////////////
 /************ */
